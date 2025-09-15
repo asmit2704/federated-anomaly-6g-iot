@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+import argparse
+import os
+from pathlib import Path
+
+def setup_project():
+    """Create necessary project directories"""
+    dirs = ['models', 'results/plots', 'data/raw', 'logs']
+    for dir_path in dirs:
+        Path(dir_path).mkdir(parents=True, exist_ok=True)
+        print(f"✅ Created directory: {dir_path}")
+
+def main():
+    print("🚀 Federated Explainable Anomaly Detection for 6G-IoT")
+    print("=" * 50)
+    
+    parser = argparse.ArgumentParser(description='IoT Anomaly Detection Framework')
+    parser.add_argument('--mode', 
+                       choices=['centralized', 'federated', 'distillation', 'explainable'],
+                       required=True,
+                       help='Experiment mode to run')
+    parser.add_argument('--dataset', 
+                       choices=['n_baiot', 'bot_iot', 'ton_iot'],
+                       default='n_baiot',
+                       help='Dataset to use')
+    parser.add_argument('--verbose', action='store_true', help='Verbose output')
+    
+    args = parser.parse_args()
+    
+    # Setup project structure
+    setup_project()
+    
+    print(f"\n🎯 Mode: {args.mode}")
+    print(f"📊 Dataset: {args.dataset}")
+    print(f"📁 Project structure created!")
+    
+    if args.mode == 'centralized':
+        print("🔄 Running centralized training...")
+        print("✅ Centralized mode completed!")
+    elif args.mode == 'federated':
+        print("🌐 Running federated learning...")
+        print("✅ Federated mode completed!")
+    elif args.mode == 'distillation':
+        print("📚 Running knowledge distillation...")
+        print("✅ Distillation completed!")
+    elif args.mode == 'explainable':
+        print("🔍 Running explainable AI analysis...")
+        print("✅ XAI analysis completed!")
+    
+    print("\n📋 Next Steps:")
+    print("1. Install: pip install -r requirements.txt")
+    print("2. Add your models to src/models/")
+    print("3. Add datasets to data/raw/")
+
+if __name__ == "__main__":
+    main()

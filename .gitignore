@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+venv/
+env/
+
+# Data files (large datasets)
+data/raw/*
+data/processed/*
+*.csv
+*.pkl
+*.h5
+
+# Model files (large trained models)
+models/*.pth
+models/*.pt
+*.joblib
+
+# Results and logs
+results/
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
